@@ -1,0 +1,28 @@
+/* Show it's not fixed to the top */
+/* body {
+	min-height: 75rem;
+} */
+/* label {
+  display: none;
+} */
+
+/* .requiredField{
+    display: none;
+} */
+.asteriskField {
+	display: none;
+}
+/* .modal-backdrop {display: none;} */
+
+/* @media (max-width: 720px)
+  .card-body {
+    padding: 0; 
+} */
+
+/* @media (max-width: 720px) {
+
+	.card-body {
+		padding: none;
+	}
+
+} */

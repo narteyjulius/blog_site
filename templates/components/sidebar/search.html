@@ -1,0 +1,9 @@
+<div>
+    <h5 class="aside mb-4"><strong>Search</strong></h5>
+    <form action="{% url 'search:post_search' %}" method="get">
+        <input class="search" type="text" name="query" placeholder="Search for articles…">
+        <button type="submit" class="btn btn-primary search-btn mt-3">
+            <span class="fa fa-search"></span>
+        </button>
+    </form>
+</div>

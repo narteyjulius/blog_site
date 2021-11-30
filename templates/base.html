@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description"
+        content="This is a blog focused on the Python programming language and the Django web framework.">
+
+    <meta name="author" content="Rouizi Yacine">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170851457-2"></script>
+    <!-- <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-170851457-2');
+    </script> -->
+    <!-- Google search console verification -->
+    <meta name="google-site-verification" content="92yMJrOOfuDR9_DGDr7pQuripigaSqd3PNq3m2fec0Q" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/monokai.css' %}">
+
+    <!-- <link rel="icon" href="/static/img/repeat.svg"> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <title>Don't repeat yourself</title> -->
+    <title>{% block head_title %}Welcome - Blog{% endblock %}</title>
+
+</head>
+
+
+<body data-spy="scroll" style="padding-top: 56px;" data-offset="15" data-target="#myScrollspy">
+
+    {% include "components/navbars/navbar.html" %}
+    {% block content %}
+
+    {% endblock content %}
+    {% include "components/footers/footer.html" %}
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script> -->
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <!-- Detect adblock -->
+    <script defer src="{% static 'js/banners.js' %}" type="text/javascript"></script>
+
+    <!-- Mailchimp opnt-in -->
+    <script defer id="mcjs">
+        ! function (c, h, i, m, p) {
+            m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(
+                m, p)
+        }(document, "script",
+            "https://chimpstatic.com/mcjs-connected/js/users/4d5977b2cc2b89a60c15a28de/68343f228efbd18083d1cd5ee.js");
+    </script>
+    <script>
+        $(document).ready(function () {
+            // add padding top to show content behind navbar
+
+            // detect scroll top or down
+            if ($('.smart-scroll').length > 0) { // check if element exists
+                var last_scroll_top = 0;
+                $(window).on('scroll', function () {
+                    scroll_top = $(this).scrollTop();
+                    if (scroll_top < last_scroll_top) {
+                        $('.smart-scroll').removeClass('scrolled-down').addClass('scrolled-up');
+                    } else {
+                        $('.smart-scroll').removeClass('scrolled-up').addClass('scrolled-down');
+                    }
+                    last_scroll_top = scroll_top;
+                });
+            }
+
+            if (!document.getElementById('yorfDWVciaqm')) {
+                document.getElementById('sRiWKmlfTSpF').style.display = 'block';
+            }
+        })
+    </script>
+</body>
+
+</html>

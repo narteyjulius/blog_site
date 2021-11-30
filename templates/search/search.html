@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Search {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <header class="border-bottom mb-4 pb-3">
+            <div class="form-inline">
+                {% if query %}
+
+                {% with results.count as total_results %}
+                <span class="mr-md-auto" style="margin-top: 30px;">Found {{ total_results }}
+                    result{{ total_results|pluralize }}</span>
+                {% endwith %}
+                {% endif %}
+
+            </div>
+        </header>
+    </div>
+</div>
+
+{% for post in results %}
+<div class="card col-lg-6 offset-sm-3 mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        {% if post.image %}
+        <div class="col-md-4">
+            <a href="{{ post.get_absolute_url }}">
+                <img class="card-img-top mt-3" src="{{ post.image.url }}" alt="{{ post.title }}">
+            </a>
+        </div>
+        {% endif %}
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h5>
+                <p class="card-text"> {{ post.body|truncatewords_html:5 }}.</p>
+                <p class="card-text">
+                    <small class="text-muted">Last updated {{ post.updated|timesince }}ago</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

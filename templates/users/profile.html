@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}{{ user.username }} | Profile {% endblock head_title %}
+
+
+{% block content %}
+<div class="container-fluid mt-5">
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="card col-lg-6 offset-lg-3 mb-3">
+            <div class="row">
+                {% if user.profile.image %}
+                <img class="card-img-top col-sm-3 col-4 my-3" src="{{ user.profile.image.url  }}"
+                    alt="{{ user.username }}">
+                {% else %}
+                <img class="card-img-top col-sm-3 col-4 my-3" src="" alt="{{ user.username }}">
+                {% endif %}
+                <div class="card-body col-9">
+                    <h2 class="card-title my-3">{{ user.username }}</h2>
+                    <p>Last login on: {{ user.last_login }}</p>
+                    <p><a href="{% url 'users:edit_profile' request.user.id %}">Edit your profile</a></p>
+
+                    <p class="card-text">{{ user.profile.about_me }}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container">
+    <div>
+        <h2>
+            You have {{total_post}} Post posted
+
+        </h2>
+
+    </div>
+
+
+    <!-- card col-lg-6 offset-sm-3 mb-3   card mb-3 -->
+    {% if posts %}
+    {% for post in posts %}
+    <div class="card col-lg-6 offset-sm-3 mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            {% if post.image %}
+            <div class="col-md-4">
+                <a href="{{ post.get_absolute_url }}">
+                    <img class="card-img-top mt-3" src="{{ post.image.url }}" alt="{{ post.title }}">
+                </a>
+            </div>
+            {% endif %}
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ post.get_absolute_url }}">
+                            {{ post.title }}
+                        </a>
+                    </h5>
+                    <p class="card-text"> {{ post.body|truncatewords_html:5 }}.</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated {{ post.updated|timesince }}ago</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="container">
+        <h2>
+            no post yet
+        </h2>
+    </div>
+    {% endif %}
+</main>
+
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head_title %}Delete post{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class=" my-5">Delete post</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{obj}}"?</p>
+                <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
+                <button type="submit" class="btn btn-danger">Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
