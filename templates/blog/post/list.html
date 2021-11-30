@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <p class="card-text">
-                            {{ post.body|truncatewords:20 }}
+                            {{ post.body|truncatewords:20 | safe }}
 
                         </p>
                         <br>

@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class PublishedManager(models.Manager):
         def get_queryset(self):
@@ -17,7 +19,14 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
-    body = models.TextField()
+    # body = models.TextField()
+
+
+    # body = RichTextField(blank=True, null=True)
+    body = RichTextUploadingField(blank=True, null=True)
+   
+
+
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

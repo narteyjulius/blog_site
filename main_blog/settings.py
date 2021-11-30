@@ -55,9 +55,14 @@ INSTALLED_APPS = [
     'search',
     'users',
 
+    'ckeditor',
+    'ckeditor_uploader',
+
 
   
 ]
+
+CKEDITOR_UPLOAD_PATH = "ckeditor"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
