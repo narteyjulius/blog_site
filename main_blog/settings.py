@@ -64,6 +64,21 @@ INSTALLED_APPS = [
 
 CKEDITOR_UPLOAD_PATH = "ckeditor"
 
+# CKEDITOR_CONFIGS = {
+#     'special': 'Special',
+#     'toolbar_Special': [
+#         ['CodeSnippet']
+#     ],
+#     'extraPlugins': 'codesnippet',
+# }
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        'skin': 'moono',
+        "extraPlugins": "codesnippet",
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
