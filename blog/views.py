@@ -20,6 +20,16 @@ from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 
 
+def about(request):
+
+    return render(request, 'blog/about.html')
+
+
+def contact(request):
+
+    return render(request, 'blog/about.html')
+
+
 def post_list(request, tag_slug=None):
     posts = Post.published.all()
     # object_list = Post.published.all()
