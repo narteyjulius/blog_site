@@ -52,6 +52,7 @@ def post_detail(request, year, month, day, post):
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.save()
+            messages.success(request, f' Your comment will be reviewed and be approved. This is done to avoid spam. Thank You! ')
     else:
         comment_form = CommentForm()
 
