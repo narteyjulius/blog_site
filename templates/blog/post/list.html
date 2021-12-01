@@ -64,13 +64,7 @@
 
 
 -->
-
-{% for message in messages %}
-<div class="alert alert-success alert-dismissible fade show">
-    {{ message }}
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-</div>
-{% endfor %}
+{% include "messages/message.html" %}
 
 <div class="container-fluid mt-5">
     <div class="row" id="sRiWKmlfTSpF">
