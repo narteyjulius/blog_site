@@ -57,9 +57,13 @@
         <ul class='navbar-nav'>
             <li class="list-inline-item ml-2">
                 <p target="_blank" rel="noopener" style="color: #007bff" title="Facebook">
-                    {% if user.is_authenticated %}
+                    {% if user.is_staff %}
 
                     <a href="{% url 'blog:post_create' %}">
+                        <button type="button" class="btn btn-success" style="    border-radius: 30px;">Add Post</button>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'blog:contact' %}">
                         <button type="button" class="btn btn-success" style="    border-radius: 30px;">Add Post</button>
                     </a>
                     {% endif %}

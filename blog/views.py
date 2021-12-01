@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from django.db.models import Count
 from taggit.models import Tag
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
 from django.utils.text import slugify
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -26,8 +26,17 @@ def about(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.send()
+            messages.success(request, f' Thank You for your message. Will get in touch soon')
 
-    return render(request, 'blog/about.html')
+        return redirect('blog:contact')
+    else:
+        form = ContactForm()
+
+    return render(request, 'blog/contact.html', {'form':form})
 
 
 def post_list(request, tag_slug=None):
@@ -102,6 +111,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         print(obj.body)
         return super().form_valid(form)
 
+
+
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES
@@ -114,7 +125,7 @@ def create_post(request):
             #     Post.objects.update(status=False)
             form_save.save()
             print(form_save)
-            messages.success(request, f' Your Post  has been created ')
+            messages.success(request, f' Your Post has been created ')
 
             return redirect('users:my_profile')
     else:

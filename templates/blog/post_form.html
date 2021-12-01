@@ -3,20 +3,82 @@
 {% block head_title %}{{ user.username }} | Create-Post {% endblock head_title %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <h2 class="my-5">Edit Profile</h2>
-            <form method="post" action="" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.media  }}
 
-                {{ form|crispy }}
+<div class="container-fluid my-5">
+    {% include "messages/message.html" %}
+    <div class="row mx-0" id="sRiWKmlfTSpF">
+        <div class="col-lg-6 col-12 offset-lg-3" id="KIsdkQSKQklm">
+            This website is made possible by displaying online advertisements to our visitors.<br>
+            Please consider supporting us by disabling your ad blocker.
+        </div>
+    </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <br>
+    <div class="row" style="margin-right: 0; margin-left: 0;">
+
+        <aside class="col-lg-3 d-none d-lg-block" id="myScrollspy">
+            <div class="list-group">
+                <!-- <h4 class="bg-white mb-0 py-3 pl-3 text-info">TABLE OF CONTENTS</h4>
+
+            <a class="list-group-item list-group-item-action" href="#read-an-image-cv2imread">Read an Image
+                (cv2.imread)</a>
+
+            <a class="list-group-item list-group-item-action" href="#display-an-image-cv2imshow">Display an Image
+                (cv2.imshow)</a>
+
+            <a class="list-group-item list-group-item-action" href="#write-an-image-cv2imwrite">Write an Image
+                (cv2.imwrite)</a>
+
+            <a class="list-group-item list-group-item-action" href="#summary">Summary</a>
+
+            <a class="list-group-item list-group-item-action text-info" href="#comment">Leave a comment</a>
+        </div> -->
+        </aside>
+        <div class="col-lg-6  col-12 main">
+            <div class="card-body">
+                <!-- <div class="container">
+            <div class="row"> -->
+                <!-- <div class="col-6">
+            <h2 class="my-5">Edit Profile</h2> -->
+                <h1 class="card-title text-center mb-3 mt-0 h2 h2-sm">Edite Profile</h1>
+                <!-- <div class="text-muted text-center mb-3"> -->
+                <form method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.media  }}
+
+                    {{ form|crispy }}
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <br>
+            </div>
+        </div>
+        <div class='col-lg-3 mt-5'>
+            <!-- Search bar -->
+            <aside class="main p-3 p-sm-4 mt-4 d-none d-lg-block d-xl-block">
+                {% include "components/sidebar/search.html" %}
+
+            </aside>
+            <!-- Recent Posts -->
+            <aside class='mt-3 d-none d-lg-block d-xl-block'>
+                <div class='row main mx-1'>
+                    <h4 class="text-info">Recent Posts</h4>
+                    {% for post in similar_posts %}
+
+                    <a class="list-group-item list-group-item-action"
+                        href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    {% endfor %}
+
+                </div>
+            </aside>
+            <aside class="main p-3 p-sm-4 mt-4">
+                {% include "components/sidebar/recommended_post.html" %}
+
+            </aside>
         </div>
     </div>
 </div>
+<!-- </div>
+</div>
+</div> -->
+
 {% endblock content %}

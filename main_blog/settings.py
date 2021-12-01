@@ -74,13 +74,19 @@ CKEDITOR_UPLOAD_PATH = "ckeditor"
 
 CKEDITOR_CONFIGS = {
     "default": {
+        # 'toolbar': 'full',
+        'height': 'auto',
+        'width': 'auto',
         'skin': 'moono',
         "extraPlugins": "codesnippet",
-    }
+    },
+
 }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -197,12 +203,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_SESSION_REMEMBER = False
 ACCOUNT_USERNAME_BLACKLIST = ['admin', 'sylar']
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = '587'
-# EMAIL_USE_TLS = True
-# # EMAIL_HOST_USER = 'julius.nartey.71@gmail.com'
-# EMAIL_HOST_USER = 'sylarnano688@gmail.com'
-# EMAIL_HOST_PASSWORD = 'ozaxdfucozadbnyu'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'julius.nartey.71@gmail.com'
+EMAIL_HOST_USER = 'sylarnano688@gmail.com'
+EMAIL_HOST_PASSWORD = 'ozaxdfucozadbnyu'
