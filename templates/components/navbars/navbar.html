@@ -1,5 +1,5 @@
 <nav class="navbar smart-scroll navbar-expand-lg">
-    <a class="navbar-brand link ml-lg-5" href="/">
+    <a class="navbar-brand link ml-lg-5" href="{% url "blog:post_list" %}">
         <span>
             Luke's
         </span>
@@ -18,10 +18,10 @@
                 <a class="nav-link link" href="{% url "blog:post_list" %}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link" href="/about/">About</a>
+                <a class="nav-link link" href="{% url "blog:about" %}">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link" href="/contact/">Contact</a>
+                <a class="nav-link link" href="{% url "blog:contact" %}">Contact</a>
             </li>
             <li class="nav-item dropdown mb-lg-0 mb-sm-2">
                 <a class="nav-link link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown"
