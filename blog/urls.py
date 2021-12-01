@@ -6,8 +6,10 @@ from . import views
 app_name = 'blog'
 
 urlpatterns = [
-# post views
             # funtion base view
+    path('about', views.about, name='about'),
+    path('contact-us/', views.contact, name='contact'),
+    
     path('post/create/', views.create_post, name='post_create'),
     path('post/<int:id>/delete/', views.delete_post, name='post_delete'),
     path('post/<int:id>/', views.update_post, name='post_update'),
