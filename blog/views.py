@@ -19,6 +19,16 @@ from django.views.generic import (
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 
+# from django.shortcuts import render_to_response
+# from django.template import RequestContext
+
+
+def error_404_page(request, exception):
+    return render(request, "errors/404.html")
+
+def error_500_page(request, *args, **argv):
+    return render(request, "errors/500.html", status=500)
+
 
 def about(request):
 

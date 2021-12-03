@@ -31,12 +31,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = True
-DEBUG = env('DEBUG')
+# DEBUG = env('DEBUG')
 
-
-# ALLOWED_HOSTS = ['*']
-
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+DEBUG = False
+# ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = '*'
 
 # Application definition
 
@@ -240,7 +239,7 @@ ACCOUNT_USERNAME_BLACKLIST = ['admin', 'sylar']
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER') 
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
