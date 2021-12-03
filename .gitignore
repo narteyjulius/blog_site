@@ -16,3 +16,7 @@ db.sqlite3/
 db.sqlite3
 media/
 media
+prod.py/
+prod.py
+.env/
+.env

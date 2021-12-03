@@ -190,6 +190,9 @@ There are no similar Post yet
                     <p>
                         {{ post.body | safe }}
                     </p>
+                    <p>
+                        {{ post.body2 | safe }}
+                    </p>
                 </div>
 
 
@@ -223,7 +226,7 @@ There are no similar Post yet
             <!-- Recent Posts -->
             <aside class='mt-3 d-none d-lg-block d-xl-block'>
                 <div class='row main mx-1'>
-                    <h4 class="text-info">Recent Posts</h4>
+                    <h4 class="text-info">Similar Posts</h4>
                     {% for post in similar_posts %}
 
                     <a class="list-group-item list-group-item-action"

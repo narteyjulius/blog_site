@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+8&penar@mmga#0p0jp(()dy^431bup-gc@^7gsyr21#4a_o6r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -75,12 +75,34 @@ CKEDITOR_UPLOAD_PATH = "ckeditor"
 
 CKEDITOR_CONFIGS = {
     "default": {
-        # 'toolbar': 'full',
+        'toolbar': 'Custom',
         'height': 'auto',
         'width': 'auto',
-        'skin': 'moono',
-        "extraPlugins": "codesnippet",
+        # 'skin': 'moono',
+        # 'skin': 'kama',
+        'toolbar_Custom': [
+            ['Bold', '-','Image'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source','codesnippet'],
+
+        ],
+       
     },
+    'special': {
+        'toolbar': 'Special',
+        # 'height': 'auto',
+        # 'width': 'auto',
+        'skin': 'moono',
+        'toolbar_Special': [
+            ['Bold', 'Image','Link','Unlink', 'CodeSnippet'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['RemoveFormat', 'Source','codesnippet'],
+
+
+        ],
+        'extraPlugins':'codesnippet',
+    }
 
 }
 

@@ -23,7 +23,8 @@ class Post(models.Model):
 
 
     # body = RichTextField(blank=True, null=True)
-    body = RichTextUploadingField(blank=True, null=True)
+    body = RichTextUploadingField(blank=True, null=True,)
+    body2 = RichTextUploadingField(blank=True, null=True, config_name='special')
    
 
 
